@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<style> 
+
+body {
+	width: 1200px;
+	margin: 100px 100px auto;
+	text-align: center;
+} 
+.avail{
+	background-color: white;	
+}
+.r1 {
+	background-color: #5599FF;
+	
+	padding: 2px;
+}
+
+.availNo{
+	background-color: white;	
+}
+.r2 {
+	background-color: #5599FF;
+	
+	padding: 2px;
+}
+
+.inc{
+	background-color: white;
+
+}
+.r3 {
+	background-color: #73DD86;
+	
+	padding: 2px;
+
+}
+
+.exp{
+	background-color: white;
+
+}
+.r4 {
+	background-color: #FE4042;
+	
+	padding: 2px;
+
+}
+
+.addsub{
+	
+
+}
+.item{
+	
+
+}
+.amoit{
+	
+
+}
+.submit{
+	
+
+}
+
+.r5 {
+	background-color: #5599FF;
+	
+	padding: 2px;
+}
+
+
+.suminc{
+	background-color: white;
+
+}
+
+
+.sumexp{
+	background-color: white;
+
+}
+
+.r6 {
+	background-color: #D9D9D9;
+	
+	padding: 2px;
+}
+	
+</style>
+</head>
+<body>
+<h1>Budget Calculator</h1>
+<div class="container-fluid">
+<div class="row r1">
+
+<div class="col-lg-4 col-lg-offset-4 col-md-2 col-md-offset-5 col-sm-6 col-sm-offset-3 col-xs-6 col-xs-offset-3 avail " ><p>Available Budget</p>
+	
+</div>
+
+</div>
+<br>	
+<div class="row r2">
+
+<div class="col-lg-4 col-lg-offset-4 col-md-2 col-md-offset-5 col-sm-6 col-sm-offset-3 col-xs-6 col-xs-offset-3 availNo " ><p>0</p>
+	
+</div>
+
+</div>	
+<br>
+<div class="row r3">
+
+<div class="col-lg-4 col-lg-offset-4 col-md-2 col-md-offset-5 col-sm-6 col-sm-offset-3 col-xs-6 col-xs-offset-3 inc " ><p>Income</p>
+	
+</div>
+
+</div>
+<br>	
+	
+<div class="row r4">
+
+<div class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-6 col-xs-offset-3 exp " ><p>Expenses</p>
+	
+</div>
+
+</div>
+<br>
+
+<div class="row r5">
+<form>
+<div class="col-lg-1 col-lg-offset-2 col-md-1 col-md-offset-2 col-sm-1 col-sm-offset-2 col-xs-1 col-xs-offset-2 addsub " > <select id="inex">
+  <option value="inc1">+</option>
+  <option value="exp1">-</option>
+</select> 
+</div>
+
+<div class="col-lg-4 col-lg-offset-1 col-md-4 col-md-offset-1 col-sm-4 col-sm-offset-1 col-xs-4 col-xs-offset-1 item " ><input id="subject" style="width:100%;" type="text" placeholder="Input">
+</div>
+
+<div class="col-lg-1 col-lg-offset-1 col-md-1 col-md-offset-1 col-sm-1 col-sm-offset-1 col-xs-1 col-xs-offset-1 amoit " ><input id="amount" style="width:100%;" type="number" placeholder="Amount">
+</div>
+
+<div class="col-lg-1 col-lg-offset-1 col-md-1 col-md-offset-1 col-sm-1 col-sm-offset-1 col-xs-1 col-xs-offset-1 submit " ><button type="submit" onclick="createArray()"">submit</button>
+
+	
+</div>
+</form>
+</div>
+<br>
+<div class="row r6">
+
+<div class="col-lg-3 col-lg-offset-2 col-md-3 col-md-offset-2 col-sm-4 col-sm-offset-1 col-xs-4 col-xs-offset-2 suminc " ><p>inc 0</p>
+	
+</div>
+
+<div class="col-lg-3 col-lg-offset-2 col-md-3 col-md-offset-2 col-sm-4 col-sm-offset-1 col-xs-4 col-xs-offset-1 sumexp " ><p>exp 0</p>
+	
+</div>
+</div>
+
+</div>
+<script>
+	//create object ,+-, name, amount, button()
+	function createArray() {
+		transaction = {
+			"inex":$("inex").val(),
+			"subject":$("subject").val(),
+			"amount":$("amount").val(),
+		};
+
+		transactionArray.push(transaction);
+		console.log(transactionArray);
+	}
+    
+
+    //display object
+    for (i=0; i < transaction.length; i++){
+    	var pos = "<div>";
+
+    	pos += '<a>' + transaction[i].subject + '</a>';
+
+    	pos += '<a>' + transaction[i].inex + '</a>';
+
+    	pos += '<a>' + transaction[i].amount + '</a>';
+
+    	if (transaction[i].inex = "+") {
+    document.getElementById("income").innerHTML += pos;
+            } 
+       else {
+    document.getElementById("expense").innerHTML += pos;  
+           }}
+
+    //calculate budget
+    
+    	budget1 = 0;
+    	income1 = 0;
+    	expense1 = 0;
+
+    function addtoinc(income) {
+    	newIncome = Number(income);
+    	income1 += newIncome; 
+    	document.getElementById("inc").innerHTML += (income1)
+    }
+
+     function addtoexp(expense) {
+    	newExpense=Number(expense)
+    	expense1 += newExpense; 
+    	document.getElementById("exp").innerHTML += (expense1)
+    }
+
+    function bud(income,expense) {
+    	newBudget=Number(budget)
+    	budget1 = newIncome-newExpense; 
+    	document.getElementById("availNo").innerHTML = (budget1)
+    }
+
+</script>
+</body>
+</html>
